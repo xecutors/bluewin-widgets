@@ -36,17 +36,19 @@ export default class News extends React.Component {
     const { news, loading } = this.state;
     return (
       <div className={`news ${isClassic ? 'news-classic' : 'news-light'}`}>
-        News
         {loading ? (
           <Loading />
         ) : news.map(entry => (
-          <div key={entry.id}>
-            {entry.flag && (
-              <span className={`flag flag-color-${entry.flag.color}`}>{entry.flag.text}</span>
-            )}
-            <img src={entry.image} alt={entry.title} />
-            {entry.supertitle}
-            {entry.title}
+          <div className="teaser-short" key={entry.id}>
+            <div className="teaser__img-wrap">
+              <img className="teaser__img" src={entry.image_rect} alt={entry.title} />
+            </div>
+            <div className="teaser__text">
+              {entry.flag && (
+                <div className={`teaser__flag teaser__flag--${entry.flag.color}`}>{entry.flag.text}</div>
+              )}
+              <h2 className="teaser__title">{entry.title}</h2>
+            </div>
           </div>
         ))}
       </div>

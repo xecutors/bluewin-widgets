@@ -9,30 +9,38 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="manifest" href="site.webmanifest">
         <link rel="apple-touch-icon" href="icon.png">
+        <link rel="stylesheet" href="http://fidel.io/stylesheets/main-83207ee7.css">
     </head>
     <body>
         <p>Test Widgets</p>
 
         <script src="https://unpkg.com/babel-polyfill@6.26.0/dist/polyfill.min.js"></script>
         <script src="./bluewin-widgets.js"></script>
-        <div>
+        <h1>Teaser Light</h1>
+        <div className="teaser-list">
           <div id="light-news"/>
+          <script>
+            var factory = new BluewinWidgetFactory.default({
+              endpoint: 'dump.json',
+            }).render(
+              document.getElementById("light-news"),
+              BluewinWidgetFactory.Components.NewsLight,
+            );
+          </script>
         </div>
-        <div>
+
+        <h1>Teaser Classic</H1>
+        <div className="teaser-list">
           <div id="classic-news"/>
+          <script>
+            var factory = new BluewinWidgetFactory.default({
+              endpoint: 'dump.json',
+            }).render(
+              document.getElementById("classic-news"),
+              BluewinWidgetFactory.Components.NewsClassic,
+            );
+          </script>
         </div>
-        <script>
-          var factory = new BluewinWidgetFactory.default({
-            endpoint: 'http://localhost:5000/dump.json',
-          });
-          factory.render(
-            document.getElementById("classic-news"),
-            BluewinWidgetFactory.Components.NewsClassic,
-          );
-          factory.render(
-            document.getElementById("light-news"),
-            BluewinWidgetFactory.Components.NewsLight,
-          );
-        </script>
+
     </body>
 </html>
