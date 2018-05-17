@@ -1,4 +1,4 @@
-// import fetch from 'isomorphic-unfetch';
+import 'isomorphic-unfetch';
 import React from 'react';
 import Loading from './Loading';
 
