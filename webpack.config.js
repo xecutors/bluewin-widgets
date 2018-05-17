@@ -3,6 +3,7 @@
 const webpack = require('webpack');
 
 const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 const env = require('yargs').argv.env; // use --env with webpack 2
 const pkg = require('./package.json');
@@ -13,7 +14,11 @@ let plugins = [],
   outputFile;
 
 if (env === 'build') {
+  plugins.push(new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify('production'),
+  }));
   plugins.push(new UglifyJsPlugin({ minimize: true }));
+  plugins.push(new BundleAnalyzerPlugin());
   outputFile = `${libraryName}.min.js`;
 } else {
   outputFile = `${libraryName}.js`;
