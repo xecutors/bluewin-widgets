@@ -1,10 +1,18 @@
-import fetch from 'isomorphic-unfetch';
+// import fetch from 'isomorphic-unfetch';
 import React from 'react';
 import Loading from './Loading';
 
 const getFeed = async (url, limit) => {
   try {
-    const results = await fetch(url);
+    const results = await fetch(url, {
+      method: 'GET',
+      mode: 'no-cors',
+      credentials: 'include',
+      headers: {
+        Accept: 'application/json',
+        Authorization: 'bluewin-mail',
+      },
+    });
     const jsonData = await results.json();
     const filteredResults = jsonData.json
       .filter(({ type }) => (type === 'teaser'))

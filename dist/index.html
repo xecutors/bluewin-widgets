@@ -21,7 +21,7 @@
           <div id="light-news"/>
           <script>
             var factory = new BluewinWidgetFactory.default({
-              endpoint: 'dump.json',
+              endpoint: 'https://www.bluewin.ch/de/index.html',
             }).render(
               document.getElementById("light-news"),
               BluewinWidgetFactory.Components.NewsLight,
@@ -34,7 +34,7 @@
           <div id="classic-news"/>
           <script>
             var factory = new BluewinWidgetFactory.default({
-              endpoint: 'dump.json',
+              endpoint: 'https://www.bluewin.ch/fr/index.html',
             }).render(
               document.getElementById("classic-news"),
               BluewinWidgetFactory.Components.NewsClassic,
