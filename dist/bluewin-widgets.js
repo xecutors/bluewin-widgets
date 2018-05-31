@@ -19838,6 +19838,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 __webpack_require__(35);
 
 var _react = __webpack_require__(1);
@@ -19915,6 +19917,14 @@ var getFeed = function () {
   };
 }();
 
+var teaserColor = function teaserColor(entry) {
+  var backgroundColor = entry.flag && entry.flag.color && entry.flag.color !== 'default' ? entry.flag.color : null;
+  return _extends({
+    teaserStyle: backgroundColor ? { backgroundColor: backgroundColor } : null,
+    teaserClass: backgroundColor ? 'teaser__flag--special' : 'teaser__flag--default'
+  }, entry);
+};
+
 var News = function (_React$Component) {
   _inherits(News, _React$Component);
 
@@ -19947,10 +19957,10 @@ var News = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'news ' + (isClassic ? 'news-classic' : 'news-light') },
-        loading ? _react2.default.createElement(_Loading2.default, null) : news.map(function (entry) {
+        loading ? _react2.default.createElement(_Loading2.default, null) : news.map(teaserColor).map(function (entry) {
           return _react2.default.createElement(
-            'div',
-            { className: 'teaser-short', key: entry.id },
+            'a',
+            { className: 'teaser-short', key: entry.id, target: '_blank', rel: 'noopener noreferer', href: 'https://www.bluewin.ch' + entry.id },
             _react2.default.createElement(
               'div',
               { className: 'teaser__img-wrap' },
@@ -19961,7 +19971,7 @@ var News = function (_React$Component) {
               { className: 'teaser__text' },
               entry.flag && _react2.default.createElement(
                 'div',
-                { className: 'teaser__flag teaser__flag--' + entry.flag.color },
+                { className: 'teaser__flag ' + entry.teaserClass, style: entry.teaserStyle },
                 entry.flag.text
               ),
               _react2.default.createElement(
