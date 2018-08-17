@@ -6,8 +6,6 @@ const getFeed = async (url, limit) => {
   try {
     const results = await fetch(url, {
       method: 'GET',
-      mode: 'no-cors',
-      credentials: 'include',
       headers: {
         Accept: 'application/json',
         Authorization: 'bluewin-mail',
