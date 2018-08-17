@@ -1075,7 +1075,7 @@ var BluewinWidgetFactory = function () {
   function BluewinWidgetFactory() {
     var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
         _ref$endpoint = _ref.endpoint,
-        endpoint = _ref$endpoint === undefined ? 'https://www.bluewin.ch' : _ref$endpoint;
+        endpoint = _ref$endpoint === undefined ? 'https://bluewin-widget-proxy.production.livingdocs.io/de/index.html' : _ref$endpoint;
 
     _classCallCheck(this, BluewinWidgetFactory);
 
@@ -20782,8 +20782,6 @@ var getFeed = function () {
             _context.next = 3;
             return fetch(url, {
               method: 'GET',
-              mode: 'no-cors',
-              credentials: 'include',
               headers: {
                 Accept: 'application/json',
                 Authorization: 'bluewin-mail'
