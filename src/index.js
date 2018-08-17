@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import * as Components from './components';
 
 export default class BluewinWidgetFactory {
-  constructor({ endpoint = 'https://www.bluewin.ch' } = {}) {
+  constructor({ endpoint = 'https://bluewin-widget-proxy.production.livingdocs.io/de/index.html' } = {}) {
     this.endpoint = endpoint;
   }
   render(element, Component, aProps, callback) {

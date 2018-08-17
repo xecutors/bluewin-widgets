@@ -18,10 +18,10 @@
         <script src="./bluewin-widgets.js"></script>
         <h1>Teaser Light</h1>
         <div className="teaser-list">
-          <div id="light-news"/>
+          <div id="light-news" />
           <script>
             var factory = new BluewinWidgetFactory.default({
-              endpoint: 'dump.json',
+              endpoint: 'https://bluewin-widget-proxy.production.livingdocs.io/de/index.html',
             }).render(
               document.getElementById("light-news"),
               BluewinWidgetFactory.Components.NewsLight,
@@ -31,10 +31,10 @@
 
         <h1>Teaser Classic</H1>
         <div className="teaser-list">
-          <div id="classic-news"/>
+          <div id="classic-news" />
           <script>
             var factory = new BluewinWidgetFactory.default({
-              endpoint: 'dump.json',
+              endpoint: 'https://bluewin-widget-proxy.production.livingdocs.io/de/index.html',
             }).render(
               document.getElementById("classic-news"),
               BluewinWidgetFactory.Components.NewsClassic,
